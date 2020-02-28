@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un utilisteur{% endblock %}
+
+{% block body %}
+<h1> Ajouter un utilisteur</h1>
+
+    <section class="section has-background-white-ter">
+        {{ form_start(form) }}
+        {{ form_row(form.pseudo) }}
+        {{ form_row(form.nom) }}
+        {{ form_row(form.prenom) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.roles) }}
+        {{ form_row(form.password) }}
+        {{ form_row(form.telephone) }}
+        {{ form_row(form.civilite) }}
+        {# {{ form_row(form.date_enregsitrement) }} #}
+            <button class="button is-primary is fullwidth">Ajouter</button>
+        {{ form_end(form) }}
+    </section>    
+
+{% endblock %}

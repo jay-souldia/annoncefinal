@@ -1,0 +1,46 @@
+
+{% extends 'admin_base.html.twig' %}
+
+{% block title %}Liste des Artistes{% endblock %}
+
+{% block body %}
+
+<table border =1>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>titre</th>
+            <th>Description Courte</th>
+            <th> Description Longue</th>
+            <th> Adresse</th>
+            <th> Ville</th>
+            <th> Cp</th>
+            <th> Pays</th>
+            <th> Date enregistrement</th>
+        </tr>
+    </thead>
+    <tbody>
+{% for annonce in annonce %}
+        <tr>
+            <td>{{ annonce.id}}</td>
+            <td>{{ annonce.titre }}</td>
+            <td>{{ annonce.description_courte }}</td>
+            <td>{{ annonce.description_longue }}</td>
+            <td>{{ annonce.prix }}</td>
+            <td>{{ annonce.adresse }}</td>
+            <td>{{ annonce.ville }}</td>
+            <td>{{ annonce.cp }}</td>
+            <td>{{ annonce.pays }}</td>
+            {# <td>{{ annonce.date_enregistrement }}</td> #}
+            <td><a href="{{ path("update_ann", { id: annonce.id}) }}">Modifier</a></td>
+            <td><a href="{{ path("delete_ann", { id: annonce.id}) }}">supprimer</a></td>
+        </tr>
+{% endfor %}
+</tbody>
+<tfoot> <tr><td colspan3><a href="{{ path("add_annonce") }}" > Ajouter</a></td></tr></tfoot>
+</table>
+
+{# LIEN à partir d'une ROUTE #}
+{# {{ path("nom_de_la_route") }} #}
+
+{% endblock %}

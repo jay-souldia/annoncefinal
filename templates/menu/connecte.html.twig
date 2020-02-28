@@ -1,0 +1,102 @@
+{% extends "base.html.twig" %}
+
+ 
+{% block nav %}
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="{{path("home")}}">SoulAnnonce</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button class="btn btn-primary" type="button"  aria-haspopup="true" aria-expanded="false">
+                        <a class="dropdown-item" href="{{path("home")}}">Accueil</a>
+                    </button>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button class="btn btn-primary" type="button"  aria-haspopup="true" aria-expanded="false">
+                        <a class="dropdown-item" href="{{path("profil")}}">Profil</a>
+                    </button>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button class="btn btn-primary " type="button" aria-haspopup="true" aria-expanded="false">
+                        <a class="dropdown-item" href="{{path('nouvelle_annonce') }}">Publier une annonce</a>
+                    </button>
+                </div>
+            </li>
+            {# <li class="nav-item">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="dropdown-item" href="{{path("annonce_afficher")}}">Mes Annonces</a>
+                    </button>
+                </div>
+            </li> #}
+        </ul>
+        
+        <form class="form-inline my-2 my-lg-0">
+        
+        <div class="navbar-item">
+            <div class="buttons">
+            <button type="button" class="btn btn-success" href="{{path("app_logout")}}"></button>
+                    
+        </div>
+       
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+    {# <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="">
+                SoulAnnonces
+            </a>
+
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria expanded="">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="{{path("home")}}">
+                    Accueil
+                </a>
+                <a class="navbar-item" href="{{path("annonce_afficher")}}">
+                    Annonces
+                </a>
+                <a class="navbar-item" href="{{path("profil")}}">
+                    Profil
+                </a>
+                <a class="navbar-item" href="{{path("nouvelle_annonce")}}">
+                    Publier une annonce
+                </a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                    <a class="button is-light" href="{{path("app_logout")}}">
+                        Déconnexion
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav> #}
+{% endblock %}

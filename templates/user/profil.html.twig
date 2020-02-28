@@ -1,0 +1,28 @@
+{% extends "menu/connecte.html.twig" %}
+
+{% block body %}
+
+<h1>Profil </h1>
+<div class="columns is-centered section">
+    <div class="column is-half">
+        {{ app.user.civilite == "H" ? "M" : app.user.civilite == "F" ? "Mme" : "Nspp"  }}
+        <p>{{ app.user.nom ~ " " ~ app.user.prenom }}</p>
+        <p>{{ app.user.pseudo }}</p>
+        <p>{{ app.user.telephone }}</p>
+        <p>{{ app.user.email }}</p>
+        <p>Inscrit depuis le {{ app.user.dateenregistrement|date("d/m/y, a H:i:s") }}</p>
+    </div>
+    <div class="column">
+        {% for annonce in mes_annonces %}
+            {% include "annonce/vignette.html.twig" with { "annonce": annonce} %}
+        {% endfor %}
+
+    </div>
+
+</div>
+
+
+
+
+
+{% endblock %}

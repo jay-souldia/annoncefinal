@@ -1,0 +1,31 @@
+{% extends 'menu/connecte.html.twig' %}
+
+{% block title %}Hello NoteController!{% endblock %}
+
+{% block body %}
+<div class="columns is-centered section">
+    <h1> Vous pouvez noter cet utilisteur: </h1>
+    <div class="column is-half">
+        <p><strong>Pseudo : </strong>{{ user.pseudo}}</p>
+        <p><strong>Date d'inscription : </strong>{{ user.dateenregistrement|date("d/m/y") }}</p>
+        <p class="columns">
+            <strong class="column is-one-thirds">Annonce : </strong>
+            <div class="column">
+            {% for annonce in user.annonces %}
+                <p>{{ annonce.titre }}</p>
+            {% endfor %}
+            </div>    
+        
+        </p>
+    </div>
+    <div class="column-box">
+        <h1 class="title has-text-primary has-text-centered">Attribuer une note: </h1>
+        {{ form_start(form) }}
+        {{ form_row(form.avis) }}
+        {{ form_row(form.note) }}
+        {{ form_row(form.noter, { attr: { "class": "button is-primary is-fullwidth"} }) }}
+        {{ form_end(form) }}
+    </div>
+</div>
+
+{% endblock %}

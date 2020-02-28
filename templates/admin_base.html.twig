@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags("app") }}
+        {% endblock %}
+    </head>
+    <body>
+        <header>
+        {% block nav %}
+
+        {% endblock %}
+
+        {% block body %}
+        
+        {% endblock %}  
+
+    </body>
+</html>

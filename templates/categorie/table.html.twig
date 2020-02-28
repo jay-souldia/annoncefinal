@@ -1,0 +1,33 @@
+
+{% extends 'menu/admin.html.twig' %}
+
+{% block title %}Liste des categories{% endblock %}
+
+{% block body %}
+
+<table border =1>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>titre</th>
+            <th>Mots cles</th>
+        </tr>
+    </thead>
+    <tbody>
+{% for categorie in categorie %}
+        <tr>
+            <td>{{ categorie.id}}</td>
+            <td>{{ categorie.titre }}</td>
+            <td>{{ categorie.motscles }}</td>
+            {# <td><a href="{{ path("update_cat", { id: categorie.id}) }}">Modifier</a></td>
+            <td><a href="{{ path("delete_cat", { id: categorie.id}) }}">supprimer</a></td> #}
+        </tr>
+{% endfor %}
+</tbody>
+<tfoot> <tr><td colspan3><a href="{{ path("add_cat") }}" > Ajouter</a></td></tr></tfoot>
+</table>
+
+{# LIEN à partir d'une ROUTE #}
+{# {{ path("nom_de_la_route") }} #}
+
+{% endblock %}

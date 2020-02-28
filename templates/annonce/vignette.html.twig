@@ -1,0 +1,19 @@
+<div class="columns box">
+    <div class="column is-one-quarter">
+        <img src="{{ dossier_images_annonces ~ annonce.photo.photo1 }}" class="vignette">
+    </div>
+    <div class="column">
+        <h4>
+            <a href="{{ path("annonce_afficher", { id: annonce.id }) }}">{{ annonce.titre|upper }} </a>
+            <a class="is-pulled-right" 
+                {% if annonce.user == app.user %}
+                    href="{{ path("update_annonce", { id: annonce.id }) }}">
+                {% endif %}
+                <i class="fa fa-pen"></i>
+            </a>
+        </h4>
+        <p>{{ annonce.descriptioncourte }}</p>
+        <p><span>{{ annonce.user.pseudo }}</span> <span class="is-pulled-right">{{ annonce.prix }} €</span></p>
+    </div>
+</div>
+<br>

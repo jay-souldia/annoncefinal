@@ -1,0 +1,75 @@
+{% extends app.user ? "menu/connecte.html.twig" : "menu/visiteur.html.twig" %}
+
+{% block title %}Page d'accueil{% endblock %}
+
+{% block body %}
+   
+        <main class="columns">
+            <aside class="column is-one-quarter mt-4 ml-3">
+                <form method="POST">
+                    <div>
+                        <label>Catégorie</label>
+                         <select name="categorie">
+                            <option value="">Toutes les catégories</option>
+                            {% for cat in categories %}
+                                <option value='{{ cat.id }}' {{ categorie_choisie == cat.id ? "selected" : "" }}>  {{ cat.titre }} </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div>
+                        <label>Régions</label>
+                        <select name="region">
+                            <option value="">Toutes les régions</option>
+                            {% for reg in regions %}
+                                <option value='{{ reg.ville }}' {{ ville_choisie == reg.ville ? "selected" : "" }}>  {{ reg.ville }} </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                        
+                        <div>
+                            <label>Membres</label>
+                            <select name="User">
+                                <option value="">Tous les membres</option>
+                                {% for us in users %}
+                                        <option value='{{ us.id }}' {{ user_choisi == us.id ? "selected" : "" }}>  {{ us.pseudo }} </option>
+                                {% endfor %}                                
+                            </select>
+                        </div>
+
+
+                    <fieldset class="form-group">
+                        <legend>Prix</legend>
+                        <label for="customRange1"><output id="prixAffiche">{{ prix_choisi }}</output></label><br>
+                        <input type="range" id="prix" onchange="prixAffiche.innerHTML=this.value" min=0 max=100000 step=1000 value={{ prix_choisi }}>100.000
+                    </fieldset>
+
+
+
+
+
+
+                    {# <div>
+                            <label>Prix <output id="prixAffiche">{{ prix_choisi }}</output></label><br>
+                            0<input type=range id="prix" name="prix" onchange="prixAffiche.innerHTML=this.value" min=0 max=100000 step=1000 value={{ prix_choisi }}>100.000
+                            
+                    </div> #}
+                        
+                        <button type="button" class="btn btn-outline-primary">filtrer</button
+                </form>
+            </aside>
+
+                <section class="column">
+                    {% for ann in annonces|length %}
+                    {% include "annonce/vignette.html.twig" with { "annonce" : ann} %}
+                        <p>Votre annonce ne correspond pas aux criteres demandés</p> ;
+                    {% endfor %} 
+                                                      
+                </section>
+        </main>
+ 
+
+{% endblock %}
+
+
+
